@@ -1,8 +1,11 @@
-import 'package:app_menh_ly/constants.dart';
+// import 'package:app_menh_ly/constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'components/home_nhat_menh.dart';
+import 'components/home_trach_nhat.dart';
 import 'components/home_user_info.dart';
+import 'components/home_van_thien.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -21,38 +24,22 @@ class _HomeScreenState extends State<HomeScreen> {
       //   title: Text('App Menh ly'),
       // ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            HomeInfoUser(size: size),
-            Text('NHẬT MỆNH'),
-            Container(
-              height: 220,
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.yellow,
-                borderRadius: BorderRadius.circular(5),
-              ),
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/back-ground.png'),
+              fit: BoxFit.cover,
             ),
-            Text('VẤN THIÊN'),
-            Container(
-              height: 220,
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.yellow,
-                borderRadius: BorderRadius.circular(5),
-              ),
-            ),
-            Text('TRẠCH NHẬT'),
-            Container(
-              height: 120,
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.yellow,
-                borderRadius: BorderRadius.circular(5),
-              ),
-            ),
-          ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              HomeInfoUser(size: size),
+              HomeNhatMenh(size: size),
+              HomeVanThien(size: size),
+              HomeTrachNhat(size: size),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(

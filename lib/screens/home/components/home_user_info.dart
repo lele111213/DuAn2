@@ -2,24 +2,21 @@ import 'package:app_menh_ly/constants.dart';
 import 'package:flutter/material.dart';
 
 class HomeInfoUser extends StatelessWidget {
-  const HomeInfoUser({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
-
+  const HomeInfoUser({Key? key, required this.size}) : super(key: key);
   final Size size;
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 130,
-      margin: EdgeInsets.only(bottom: kDefaultPadding),
+      height: 130 < size.height * 0.2 ? size.height * 0.2 : 130,
       padding: EdgeInsets.only(
         left: kDefaultPadding,
         right: kDefaultPadding,
       ),
       decoration: BoxDecoration(
-        // image: DecorationImage(image: AssetImage('')),
+        image: DecorationImage(
+          image: AssetImage('images/back-ground-user.jpg'),
+          fit: BoxFit.cover,
+        ),
         color: Colors.black,
         boxShadow: [
           BoxShadow(
@@ -31,28 +28,13 @@ class HomeInfoUser extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          // Container(
-          //   margin: EdgeInsets.only(right: kDefaultPadding),
-          //   decoration: BoxDecoration(
-          //     image: DecorationImage(
-          //       fit: BoxFit.contain,
-          //       image: AssetImage('assets/images/default.jpg'),
-          //     ),
-          //     shape: BoxShape.circle,
-          //   ),
-          //   width: 70,
-          //   height: 70,
-          // ),
-
           ClipOval(
             child: Image.asset(
               'assets/images/default.jpg',
               width: 70,
             ),
           ),
-
           Padding(padding: EdgeInsets.only(left: kDefaultPadding)),
-
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,6 +44,7 @@ class HomeInfoUser extends StatelessWidget {
                   'Lanmm',
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
+                  textScaleFactor: 1.1,
                 ),
                 Text(
                   '9/8/1999\nNgày Quý Tỵ\nTháng Nhâm Thân, Năm Kỷ Mão',
