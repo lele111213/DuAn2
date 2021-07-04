@@ -18,7 +18,7 @@ class HomeTrachNhat extends StatelessWidget {
           margin: EdgeInsets.all(kDefaultPadding / 2),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/back-ground-home.jpg'),
+              image: AssetImage('assets/images/back-ground-home.jpg'),
               fit: BoxFit.cover,
             ),
             color: kPrimaryColor,

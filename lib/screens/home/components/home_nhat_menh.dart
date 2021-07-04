@@ -1,11 +1,15 @@
 import 'package:app_menh_ly/constants.dart';
 import 'package:flutter/material.dart';
+import 'tinh_ngay.dart';
 
 import 'home_header.dart';
 
 class HomeNhatMenh extends StatelessWidget {
-  const HomeNhatMenh({Key? key, required this.size}) : super(key: key);
+  HomeNhatMenh({Key? key, required this.size, required this.now})
+      : super(key: key);
   final Size size;
+  final DateTime now;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,7 +22,7 @@ class HomeNhatMenh extends StatelessWidget {
           margin: EdgeInsets.all(kDefaultPadding / 2),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/back-ground-home.jpg'),
+              image: AssetImage('assets/images/back-ground-home.jpg'),
               fit: BoxFit.cover,
             ),
             color: kPrimaryColor,
@@ -29,7 +33,7 @@ class HomeNhatMenh extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    'NGÀY NHÂM TÍ\n03/07/2021',
+                    '${TinhCanChi.tinhThu(now.weekday).toUpperCase()}\nNGÀY ${TinhCanChi.tinhNgayCanChi(now).toUpperCase()}\n${now.day}-${now.month}-${now.year}',
                     style: TextStyle(color: Colors.white),
                   ),
                   Spacer(),
@@ -54,19 +58,19 @@ class HomeNhatMenh extends StatelessWidget {
                 child: Row(
                   children: [
                     Image.asset(
-                      'icons/lucky-4-leaf.png',
+                      'assets/icons/lucky-4-leaf.png',
                       width: size.width * 0.078,
                     ),
                     Image.asset(
-                      'icons/lucky-4-leaf.png',
+                      'assets/icons/lucky-4-leaf.png',
                       width: size.width * 0.078,
                     ),
                     Image.asset(
-                      'icons/lucky-4-leaf.png',
+                      'assets/icons/lucky-4-leaf.png',
                       width: size.width * 0.078,
                     ),
                     Image.asset(
-                      'icons/lucky-4-leaf.png',
+                      'assets/icons/lucky-4-leaf.png',
                       width: size.width * 0.078,
                     ),
                   ],

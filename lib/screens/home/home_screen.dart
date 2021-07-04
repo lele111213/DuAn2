@@ -18,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    DateTime now = new DateTime.now();
     return Scaffold(
       // appBar: AppBar(
       //   elevation: 0,
@@ -27,15 +28,15 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/back-ground.png'),
+              image: AssetImage('assets/images/back-ground.png'),
               fit: BoxFit.cover,
             ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              HomeInfoUser(size: size),
-              HomeNhatMenh(size: size),
+              HomeInfoUser(size: size, born: DateTime(1998, 4, 22)),
+              HomeNhatMenh(size: size, now: now),
               HomeVanThien(size: size),
               HomeTrachNhat(size: size),
             ],

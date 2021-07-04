@@ -1,9 +1,13 @@
 import 'package:app_menh_ly/constants.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+import 'tinh_ngay.dart';
 
 class HomeInfoUser extends StatelessWidget {
-  const HomeInfoUser({Key? key, required this.size}) : super(key: key);
+  const HomeInfoUser({Key? key, required this.size, required this.born})
+      : super(key: key);
   final Size size;
+  final DateTime born;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +18,7 @@ class HomeInfoUser extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('images/back-ground-user.jpg'),
+          image: AssetImage('assets/images/back-ground-user.jpg'),
           fit: BoxFit.cover,
         ),
         color: Colors.black,
@@ -28,10 +32,13 @@ class HomeInfoUser extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          ClipOval(
-            child: Image.asset(
-              'assets/images/default.jpg',
-              width: 70,
+          IconButton(
+            iconSize: 70,
+            onPressed: () {},
+            icon: ClipOval(
+              child: Image.asset(
+                'assets/images/default.jpg',
+              ),
             ),
           ),
           Padding(padding: EdgeInsets.only(left: kDefaultPadding)),
@@ -47,7 +54,7 @@ class HomeInfoUser extends StatelessWidget {
                   textScaleFactor: 1.1,
                 ),
                 Text(
-                  '9/8/1999\nNgày Quý Tỵ\nTháng Nhâm Thân, Năm Kỷ Mão',
+                  '${DateFormat('yyyy-MM-dd').format(born)}\nNgày ${TinhCanChi.tinhNgayCanChi(born)}\nTháng ${TinhCanChi.tinhThangCanChi(born)}, Năm ${TinhCanChi.tinhNamCanChi(born)}',
                   textScaleFactor: 0.8,
                   style: TextStyle(color: Colors.white),
                 ),

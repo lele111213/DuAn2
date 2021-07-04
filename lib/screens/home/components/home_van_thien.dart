@@ -17,7 +17,7 @@ class HomeVanThien extends StatelessWidget {
           margin: EdgeInsets.all(kDefaultPadding / 2),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/back-ground-home.jpg'),
+              image: AssetImage('assets/images/back-ground-home.jpg'),
               fit: BoxFit.cover,
             ),
             color: kPrimaryColor,
@@ -51,7 +51,7 @@ class HomeVanThien extends StatelessWidget {
                 width: size.width * 0.5,
                 alignment: Alignment.bottomRight,
                 child: Image.asset(
-                  'images/ong-lac.png',
+                  'assets/images/ong-lac.png',
                   width: size.width * 0.3,
                 ),
               )

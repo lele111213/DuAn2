@@ -16,7 +16,7 @@ class HomeHeader extends StatelessWidget {
         title,
         style: TextStyle(
           color: Colors.black,
-          shadows: [Shadow(color: Colors.white, blurRadius: 5.0)],
+          shadows: [Shadow(color: Colors.white, blurRadius: 10.0)],
           fontWeight: FontWeight.bold,
         ),
         textScaleFactor: 1.2,
