@@ -1,14 +1,17 @@
+import 'package:app_menh_ly/components/tinh_ngay.dart';
 import 'package:app_menh_ly/constants.dart';
 import 'package:flutter/material.dart';
-import 'tinh_ngay.dart';
+import 'package:intl/intl.dart';
 
 import 'home_header.dart';
 
 class HomeNhatMenh extends StatelessWidget {
-  HomeNhatMenh({Key? key, required this.size, required this.now})
+  HomeNhatMenh(
+      {Key? key, required this.size, required this.now, required this.press})
       : super(key: key);
   final Size size;
   final DateTime now;
+  final Function() press;
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +36,12 @@ class HomeNhatMenh extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    '${TinhCanChi.tinhThu(now.weekday).toUpperCase()}\nNGÀY ${TinhCanChi.tinhNgayCanChi(now).toUpperCase()}\n${now.day}-${now.month}-${now.year}',
+                    '${TinhCanChi.tinhThu(now.weekday).toUpperCase()}\nNGÀY ${TinhCanChi.tinhNgayCanChi(now).toUpperCase()}\n${DateFormat('dd-MM-yyyy').format(now)}',
                     style: TextStyle(color: Colors.white),
                   ),
                   Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: press,
                     child: Text(
                       'KHÁM PHÁ',
                       style: TextStyle(color: Colors.white),

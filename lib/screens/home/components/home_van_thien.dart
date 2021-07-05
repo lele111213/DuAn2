@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'home_header.dart';
 
 class HomeVanThien extends StatelessWidget {
-  const HomeVanThien({Key? key, required this.size}) : super(key: key);
+  const HomeVanThien({Key? key, required this.size, required this.press})
+      : super(key: key);
   final Size size;
+  final Function() press;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,7 +35,7 @@ class HomeVanThien extends StatelessWidget {
                   ),
                   Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: press,
                     child: Text(
                       'VẤN THIÊN',
                       style: TextStyle(color: Colors.white),

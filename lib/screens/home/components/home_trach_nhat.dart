@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'home_header.dart';
 
 class HomeTrachNhat extends StatelessWidget {
-  const HomeTrachNhat({Key? key, required this.size}) : super(key: key);
+  const HomeTrachNhat({Key? key, required this.size, required this.press})
+      : super(key: key);
   final Size size;
+  final Function() press;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,7 +29,7 @@ class HomeTrachNhat extends StatelessWidget {
           child: Row(
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: press,
                 child: Text(
                   'TRẠCH NHẬT',
                   style: TextStyle(

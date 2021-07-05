@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "193805945063",
+    "project_id": "app-menh-ly",
+    "storage_bucket": "app-menh-ly.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193805945063:android:cc14c7d240ff9fd1cafa42",
+        "android_client_info": {
+          "package_name": "com.tranle.app_menh_ly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193805945063-72fpa1dittuld711rmbgdp7vbor0nuil.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkb7sIvxo4PkB46xeebFEXmp9ON333nyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193805945063-72fpa1dittuld711rmbgdp7vbor0nuil.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

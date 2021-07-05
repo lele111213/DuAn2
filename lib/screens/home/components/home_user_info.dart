@@ -1,15 +1,19 @@
+import 'package:app_menh_ly/components/tinh_ngay.dart';
 import 'package:app_menh_ly/constants.dart';
+import 'package:app_menh_ly/models/user.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'tinh_ngay.dart';
+import 'package:provider/provider.dart';
 
 class HomeInfoUser extends StatelessWidget {
-  const HomeInfoUser({Key? key, required this.size, required this.born})
+  const HomeInfoUser({Key? key, required this.size, required this.press})
       : super(key: key);
   final Size size;
-  final DateTime born;
+  final Function() press;
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User?>(context)!;
+    final born = user.birthDay;
     return Container(
       height: 130 < size.height * 0.2 ? size.height * 0.2 : 130,
       padding: EdgeInsets.only(
@@ -34,7 +38,7 @@ class HomeInfoUser extends StatelessWidget {
         children: <Widget>[
           IconButton(
             iconSize: 70,
-            onPressed: () {},
+            onPressed: press,
             icon: ClipOval(
               child: Image.asset(
                 'assets/images/default.jpg',
@@ -48,13 +52,13 @@ class HomeInfoUser extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Lanmm',
+                  '${user.userName}',
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
                   textScaleFactor: 1.1,
                 ),
                 Text(
-                  '${DateFormat('yyyy-MM-dd').format(born)}\nNgày ${TinhCanChi.tinhNgayCanChi(born)}\nTháng ${TinhCanChi.tinhThangCanChi(born)}, Năm ${TinhCanChi.tinhNamCanChi(born)}',
+                  '${DateFormat('dd-MM-yyyy').format(born)}\nNgày ${TinhCanChi.tinhNgayCanChi(born)}\nTháng ${TinhCanChi.tinhThangCanChi(born)}, Năm ${TinhCanChi.tinhNamCanChi(born)}',
                   textScaleFactor: 0.8,
                   style: TextStyle(color: Colors.white),
                 ),
