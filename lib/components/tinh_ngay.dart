@@ -311,7 +311,6 @@ class TinhCanChi {
       can = _can[10 - (soThang % 10 == 0 ? 10 : soThang % 10)];
       chi = _chi[12 - (soThang % 12 == 0 ? 12 : soThang % 12)];
     }
-    print('$soThang - $can - $chi');
     return '$can $chi';
   }
 
