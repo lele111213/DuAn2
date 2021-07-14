@@ -6,7 +6,12 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('NHAT MENH '),
+      child: TabBarView(children: [
+        Text('11111111111'),
+        Text('12222222223123'),
+        Text('333333333333'),
+        Text('444444444444'),
+      ]),
     );
   }
 }

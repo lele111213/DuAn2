@@ -10,24 +10,32 @@ class UserInfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       top: false,
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white.withOpacity(0),
-          toolbarHeight: 45,
-          leading: BackButton(color: Colors.black),
-          title: Text(
-            'Mệnh Thần',
-            style: TextStyle(color: Colors.black),
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/user-info.jfif'),
+            fit: BoxFit.cover,
           ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.person_outline, color: Colors.black),
-              tooltip: 'Sửa Thông Tin',
-            )
-          ],
         ),
-        body: Body(),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent.withOpacity(0.7),
+            toolbarHeight: 45,
+            title: Text(
+              'Mệnh Thần',
+            ),
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.person_outline),
+                tooltip: 'Sửa Thông Tin',
+              )
+            ],
+          ),
+          body: Body(),
+        ),
       ),
     );
   }

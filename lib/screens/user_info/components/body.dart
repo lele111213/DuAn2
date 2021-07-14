@@ -11,21 +11,11 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User?>(context)!;
-    return SingleChildScrollView(
-      child: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/user-info.jfif'),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Column(
-          children: [
-            UserInfo(user: user),
-            GioiThieu(),
-          ],
-        ),
-      ),
+    return Column(
+      children: [
+        UserInfo(user: user),
+        GioiThieu(),
+      ],
     );
   }
 }

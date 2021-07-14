@@ -32,7 +32,7 @@ class User {
   void changeInfo({required uname, required birth}) {
     this.userName = uname;
     this.birthDay = birth;
-    // userController.sink.add(2);
+    UserStream.userController.sink.add(this);
   }
 }
 
