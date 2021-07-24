@@ -15,9 +15,11 @@ class UserStream {
 }
 
 class User {
+  // gender: 1=nam, 2=nữ, 0= ko biết;
+  User({required this.userName, required this.birthDay, required this.gender});
   String userName;
   DateTime birthDay;
-  User({required this.userName, required this.birthDay});
+  int gender;
 
   void login() {
     UserStream.user = this;
@@ -29,11 +31,21 @@ class User {
     UserStream.userController.sink.add(null);
   }
 
-  void changeInfo({required uname, required birth}) {
-    this.userName = uname;
-    this.birthDay = birth;
-    UserStream.userController.sink.add(this);
-  }
+  // void changeInfo({required uname, required birth, required gender}) {
+  //   this.userName = uname;
+  //   this.birthDay = birth;
+  //   this.gender = gender;
+  //   UserStream.user = this;
+  //   UserStream.userController.sink.add(UserStream.user);
+  // }
+
+  User.fromJson(Map<String, dynamic> json)
+      : userName = json['userName'],
+        birthDay = DateTime.parse(json['birthDay']),
+        gender = json['gender'];
+
+  Map<String, dynamic> toJson() =>
+      {'userName': userName, 'birthDay': birthDay.toString(), 'gender': gender};
 }
 
 // main(List<String> args) {

@@ -11,7 +11,7 @@ class VanThienScreen extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/user-info.jfif'),
+            image: AssetImage('assets/images/back-ground.png'),
             fit: BoxFit.cover,
           ),
         ),

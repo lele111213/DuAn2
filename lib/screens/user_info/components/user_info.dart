@@ -3,17 +3,16 @@ import 'package:app_menh_ly/constants.dart';
 import 'package:app_menh_ly/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({
     Key? key,
-    required this.user,
   }) : super(key: key);
-
-  final User user;
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User?>(context)!;
     return Container(
       padding: EdgeInsets.all(kDefaultPadding),
       decoration: BoxDecoration(

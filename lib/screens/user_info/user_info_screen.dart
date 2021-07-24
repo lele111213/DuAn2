@@ -1,10 +1,9 @@
+import 'components/edit_user_screen.dart';
 import 'package:flutter/material.dart';
 import 'components/body.dart';
 
 class UserInfoScreen extends StatelessWidget {
   const UserInfoScreen({Key? key}) : super(key: key);
-
-  void initState() {}
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,14 @@ class UserInfoScreen extends StatelessWidget {
             ),
             actions: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EditUserScreen(),
+                    ),
+                  );
+                },
                 icon: Icon(Icons.person_outline),
                 tooltip: 'Sửa Thông Tin',
               )

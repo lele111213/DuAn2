@@ -6,13 +6,23 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.brown[100],
-      appBar: AppBar(
-        backgroundColor: Colors.brown[500],
-        title: Text('Nhập thông tin người dùng'),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/back-ground.png'),
+          fit: BoxFit.cover,
+        ),
       ),
-      body: Body(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.grey.withOpacity(0.3),
+          title: Text('Nhập thông tin người dùng'),
+        ),
+        body: Body(),
+      ),
     );
   }
 }
