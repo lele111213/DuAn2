@@ -1,3 +1,4 @@
+import 'package:app_menh_ly/screens/home/components/home_tra_cuu/components/screens/sim_ung_menh_info_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/tra_cuu_info_screen.dart';
 
@@ -74,7 +75,7 @@ class Body extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => TraCuuInfo(selected: 5),
+                    builder: (context) => SimUngMenhInfo(),
                   ),
                 );
               },
