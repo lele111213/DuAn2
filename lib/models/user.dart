@@ -20,6 +20,7 @@ class User {
   String userName;
   DateTime birthDay;
   int gender;
+  int coin = 1000;
 
   void login() {
     UserStream.user = this;
@@ -31,6 +32,11 @@ class User {
     UserStream.userController.sink.add(null);
   }
 
+  void addCoin(int value) {
+    this.coin += value;
+    UserStream.user = this;
+    UserStream.userController.sink.add(this);
+  }
   // void changeInfo({required uname, required birth, required gender}) {
   //   this.userName = uname;
   //   this.birthDay = birth;
@@ -42,10 +48,15 @@ class User {
   User.fromJson(Map<String, dynamic> json)
       : userName = json['userName'],
         birthDay = DateTime.parse(json['birthDay']),
-        gender = json['gender'];
+        gender = json['gender'],
+        coin = json['coin'];
 
-  Map<String, dynamic> toJson() =>
-      {'userName': userName, 'birthDay': birthDay.toString(), 'gender': gender};
+  Map<String, dynamic> toJson() => {
+        'userName': userName,
+        'birthDay': birthDay.toString(),
+        'gender': gender,
+        'coin': coin
+      };
 }
 
 // main(List<String> args) {

@@ -173,6 +173,7 @@ class _EditUserScreenState extends State<EditUserScreen> {
                             birthDay: _birthDay ?? user.birthDay,
                             gender: _gender ?? user.gender,
                           );
+                          user2.coin = user.coin;
 
                           SharedPreferences prefs =
                               await SharedPreferences.getInstance();

@@ -1,3 +1,5 @@
+import 'package:app_menh_ly/screens/home/components/home_nap_xu.dart';
+import 'package:app_menh_ly/screens/nap_xu/nap_xu_screen.dart';
 import 'package:app_menh_ly/screens/nhat_menh/nhat_menh_screen.dart';
 import 'package:app_menh_ly/screens/trach_nhat/trach_nhat_screen.dart';
 import 'package:app_menh_ly/screens/user_info/user_info_screen.dart';
@@ -68,6 +70,17 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => TrachNhatScreen(),
+                  ),
+                );
+              },
+            ),
+            HomeNapXu(
+              size: size,
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NapXuScreen(),
                   ),
                 );
               },
