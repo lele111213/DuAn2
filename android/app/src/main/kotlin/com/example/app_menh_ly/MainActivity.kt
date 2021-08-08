@@ -141,8 +141,9 @@ class MainActivity: FlutterActivity() {
                             val dataRequest = AppMoMoLib.getInstance().dataRequest
                             val orderId = dataRequest["orderId"]
                             val amount = dataRequest["amount"]
+                            val requestId = dataRequest["requestId"]
                             // thanh cong
-                            result.success("""{"status":$status,"message":"$message","phonenumber":"$phonenumber","orderId":"$orderId","amount":$amount,"token":"$token"}""")
+                            result.success("""{"status":$status,"message":"$message","phonenumber":"$phonenumber","orderId":"$orderId","requestId":"$requestId","amount":$amount,"token":"$token"}""")
                         }else if (status == 5){
                             result.success("""{"status":$status,"message":"Hết thời gian thực hiện giao dịch (Timeout transaction)"}""")
                         }else if (status == 6){

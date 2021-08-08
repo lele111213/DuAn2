@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:app_menh_ly/models/user.dart';
@@ -6,9 +5,9 @@ import 'package:app_menh_ly/screens/nap_xu/components/repo/momo_payment.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../repo/payment.dart';
 import '../utils/theme_data.dart';
 import 'package:flutter/services.dart';
+import 'package:pausable_timer/pausable_timer.dart';
 
 class Momo extends StatefulWidget {
   @override
@@ -26,7 +25,7 @@ class _MomoState extends State<Momo> {
   String payResult = "";
   String payAmount = "10000";
   dynamic orderResponse = "null";
-  Timer? timer;
+  PausableTimer? timer;
   User? user;
   bool getOrderResponse = true;
   @override
@@ -35,11 +34,12 @@ class _MomoState extends State<Momo> {
     if (Platform.isIOS) {
       eventChannel.receiveBroadcastStream().listen(_onEvent, onError: _onError);
     }
-    timer = Timer.periodic(new Duration(seconds: 5), (timer) async {
+    timer = PausableTimer(new Duration(seconds: 5), () async {
       String message = "";
       orderResponse = await platform.invokeMethod('getResult');
       print('timer:: $orderResponse');
       if (orderResponse != "null") {
+        timer!.pause();
         orderResponse = jsonDecode(orderResponse);
         message = orderResponse['message'];
         // SEND REQUEST THAY SERVER ĐỂ XÁC NHẬN THANH TOÁN.
@@ -49,10 +49,11 @@ class _MomoState extends State<Momo> {
             appData: orderResponse['token'],
             partnerRefId: orderResponse['orderId'],
             amount: orderResponse['amount'],
+            requestId: orderResponse['requestId'],
           );
           if (result != null && result.status == 0) {
             print(result.status.toString() + "-" + result.message);
-            message += ' +${orderResponse['amount']}';
+            message += ' +${orderResponse['amount'] ?? ""}';
             if (user != null) {
               user!.addCoin(orderResponse['amount'] ?? 0);
               // lưu user
@@ -71,7 +72,10 @@ class _MomoState extends State<Momo> {
           payResult = message;
         });
       }
+      timer!.reset();
+      timer!.start();
     });
+    timer!.start();
   }
 
   @override

@@ -1,4 +1,5 @@
 import 'package:app_menh_ly/screens/nap_xu/components/screens/momo_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'zalo_pay_screen.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,14 @@ class _DashBoardState extends State<DashBoard> {
         show = ZaloPayScreen();
         break;
       case 3:
-        show = Container();
+        show = Scaffold(
+          appBar: AppBar(
+            title: Text('ATM / MASTERCARD / VISA'),
+          ),
+          body: Center(
+            child: Text("Sẽ có trong thời gian tới..."),
+          ),
+        );
         break;
       default:
     }
@@ -113,7 +121,7 @@ class _DashBoardState extends State<DashBoard> {
               title: 'Dùng app ZaloPay',
               index: 2,
               press: () {},
-              image: 'assets/images/van-thien-tai-van.jfif',
+              image: 'assets/icons/ZaloPay_Logo.png',
               width: width,
               height: height,
             ),

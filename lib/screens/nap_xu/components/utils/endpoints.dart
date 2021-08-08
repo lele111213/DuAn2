@@ -10,4 +10,6 @@ class Endpoints {
   static final String queryStatusUrl =
       "https://test-payment.momo.vn/pay/query-status";
   static final String apiRefundUrl = "https://test-payment.momo.vn/pay/refund";
+  static final String apiConfirmdUrl =
+      "https://test-payment.momo.vn/pay/confirm";
 }
