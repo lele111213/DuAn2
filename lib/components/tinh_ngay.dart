@@ -289,8 +289,8 @@ class TinhCanChi {
       can = _can[-soNgay % 10];
       chi = _chi[-soNgay % 12];
     } else if (soNgay > 0) {
-      can = _can[10 - soNgay % 10];
-      chi = _chi[12 - soNgay % 12];
+      can = _can[10 - (soNgay % 10 == 0 ? 10 : soNgay % 10)];
+      chi = _chi[12 - (soNgay % 12 == 0 ? 12 : soNgay % 12)];
     }
     return '$can $chi';
   }

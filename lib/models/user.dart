@@ -1,42 +1,59 @@
 import 'dart:async';
 
 class UserStream {
+  static UserStream? _instance;
+  static UserStream getInstance() {
+    if (_instance == null) _instance = UserStream();
+    return _instance as UserStream;
+  }
+
   // ignore: avoid_init_to_null
-  static dynamic user = null;
+  // static dynamic user = null;
   // static List<User> state = [];
   // static void addState (user) => state.add(user);
-  static dynamic get onStateChaned => user;
+  // static dynamic get onStateChaned => user;
 
-  static StreamController<User?> userController = new StreamController<User?>();
-  static Stream<User?> get stream => userController.stream;
-  static void closeStream() {
+  StreamController<User?> userController = new StreamController<User?>();
+  Stream<User?> get stream => userController.stream;
+
+  void closeStream() {
     userController.close();
   }
 }
 
 class User {
   // gender: 1=nam, 2=nữ, 0= ko biết;
-  User({required this.userName, required this.birthDay, required this.gender});
+  User(
+      {required this.userName,
+      required this.birthDay,
+      required this.gender,
+      this.coin = 1000});
   String userName;
   DateTime birthDay;
   int gender;
-  int coin = 1000;
+  int coin;
 
   void login() {
-    UserStream.user = this;
-    UserStream.userController.sink.add(this);
+    // UserStream.user = this;
+    UserStream.getInstance().userController.sink.add(this);
   }
 
   void logout() {
-    UserStream.user = null;
-    UserStream.userController.sink.add(null);
+    // UserStream.user = null;
+    UserStream.getInstance().userController.sink.add(null);
   }
 
   void addCoin(int value) {
     this.coin += value;
-    UserStream.user = this;
-    UserStream.userController.sink.add(this);
+    User u = User(
+        userName: this.userName,
+        birthDay: this.birthDay,
+        gender: this.gender,
+        coin: this.coin);
+    // UserStream.user = this;
+    UserStream.getInstance().userController.sink.add(u);
   }
+
   // void changeInfo({required uname, required birth, required gender}) {
   //   this.userName = uname;
   //   this.birthDay = birth;

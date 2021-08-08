@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<User?>.value(
-      value: UserStream.stream,
-      initialData: UserStream.onStateChaned,
+      value: UserStream.getInstance().stream,
+      initialData: null,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'App Menh Ly',
